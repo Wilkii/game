@@ -123,6 +123,15 @@
         "name": "assets\\coin.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/goal.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\goal.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -160,7 +169,7 @@
         "gridWidth": 32,
         "snap": false,
         "windowMask": false,
-        "zoomFactor": 0.106
+        "zoomFactor": 0.082
       },
       "objectsGroups": [],
       "variables": [],
@@ -184,47 +193,15 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 224,
-          "layer": "",
-          "locked": false,
-          "name": "Ground",
-          "persistentUuid": "f0376c8d-3ef7-4c70-b428-aa8b8367ba18",
-          "width": 9443,
-          "x": 0,
-          "y": 864,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
           "height": 170,
           "layer": "",
           "locked": false,
           "name": "Platform",
           "persistentUuid": "9ffcb626-9907-4f6b-af41-f39d8a678c85",
-          "width": 8216,
+          "width": 9021,
           "x": 18810,
           "y": 614,
           "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 224,
-          "layer": "",
-          "locked": false,
-          "name": "Ground",
-          "persistentUuid": "e864c137-5909-48e4-a15a-2bbd464b2b1e",
-          "width": 9443,
-          "x": 10695,
-          "y": 857,
-          "zOrder": 2,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -500,6 +477,86 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 170,
+          "layer": "",
+          "locked": false,
+          "name": "Platform",
+          "persistentUuid": "9abc3275-8ee6-48cf-a56e-c862095d03fe",
+          "width": 8216,
+          "x": 29359,
+          "y": 682,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 170,
+          "layer": "",
+          "locked": false,
+          "name": "Platform",
+          "persistentUuid": "d0a3086f-9803-4d7d-9684-ea206904411c",
+          "width": 8216,
+          "x": 38086,
+          "y": 1097,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 170,
+          "layer": "",
+          "locked": false,
+          "name": "Platform",
+          "persistentUuid": "1021b1b8-7383-4061-84af-9e86937576fd",
+          "width": 9406,
+          "x": 10724,
+          "y": 855,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 170,
+          "layer": "",
+          "locked": false,
+          "name": "Platform",
+          "persistentUuid": "258843fe-7f59-4560-a2cc-017dfffcd38f",
+          "width": 9406,
+          "x": 0,
+          "y": 872,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Goal",
+          "persistentUuid": "029b6754-6ca1-4c8c-9466-2d9a21e322fe",
+          "width": 0,
+          "x": 43619,
+          "y": -292,
+          "zOrder": 7,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -582,24 +639,6 @@
         },
         {
           "height": 32,
-          "name": "Ground",
-          "tags": "",
-          "texture": "assets\\ground.jpg",
-          "type": "TiledSpriteObject::TiledSprite",
-          "width": 32,
-          "variables": [],
-          "behaviors": [
-            {
-              "name": "Platform",
-              "type": "PlatformBehavior::PlatformBehavior",
-              "canBeGrabbed": true,
-              "platformType": "NormalPlatform",
-              "yGrabOffset": 0
-            }
-          ]
-        },
-        {
-          "height": 32,
           "name": "Platform",
           "tags": "",
           "texture": "assets\\ground.jpg",
@@ -672,6 +711,45 @@
           ]
         },
         {
+          "name": "Goal",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\goal.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "bold": false,
           "italic": false,
           "name": "Explanation",
@@ -708,15 +786,6 @@
             "g": 0,
             "r": 0
           }
-        },
-        {
-          "name": "Spawn",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "behaviors": [],
-          "animations": []
         }
       ],
       "events": [
@@ -776,7 +845,7 @@
           "colorR": 74,
           "creationTime": 0,
           "disabled": false,
-          "folded": false,
+          "folded": true,
           "name": "Coin",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -921,7 +990,7 @@
           "colorR": 74,
           "creationTime": 0,
           "disabled": false,
-          "folded": false,
+          "folded": true,
           "name": "Respawn",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -1017,6 +1086,54 @@
                     "Coin",
                     "=",
                     "0"
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "disabled": false,
+          "folded": false,
+          "name": "Goal",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "disabled": false,
+              "folded": false,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "Player",
+                    "Goal",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "subInstructions": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Quit"
+                  },
+                  "parameters": [
+                    ""
                   ],
                   "subInstructions": []
                 }
