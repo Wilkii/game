@@ -169,7 +169,7 @@
         "gridWidth": 32,
         "snap": false,
         "windowMask": false,
-        "zoomFactor": 0.058
+        "zoomFactor": 0.082
       },
       "objectsGroups": [],
       "variables": [],
@@ -487,8 +487,8 @@
           "name": "Platform",
           "persistentUuid": "9abc3275-8ee6-48cf-a56e-c862095d03fe",
           "width": 8216,
-          "x": 29359,
-          "y": 682,
+          "x": 28957,
+          "y": 694,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
