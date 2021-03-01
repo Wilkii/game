@@ -2,24 +2,21 @@ gdjs.LevelCode = {};
 gdjs.LevelCode.GDPlayerObjects1= [];
 gdjs.LevelCode.GDPlayerObjects2= [];
 gdjs.LevelCode.GDPlayerObjects3= [];
-gdjs.LevelCode.GDGroundObjects1= [];
-gdjs.LevelCode.GDGroundObjects2= [];
-gdjs.LevelCode.GDGroundObjects3= [];
 gdjs.LevelCode.GDPlatformObjects1= [];
 gdjs.LevelCode.GDPlatformObjects2= [];
 gdjs.LevelCode.GDPlatformObjects3= [];
 gdjs.LevelCode.GDCoinObjects1= [];
 gdjs.LevelCode.GDCoinObjects2= [];
 gdjs.LevelCode.GDCoinObjects3= [];
+gdjs.LevelCode.GDGoalObjects1= [];
+gdjs.LevelCode.GDGoalObjects2= [];
+gdjs.LevelCode.GDGoalObjects3= [];
 gdjs.LevelCode.GDExplanationObjects1= [];
 gdjs.LevelCode.GDExplanationObjects2= [];
 gdjs.LevelCode.GDExplanationObjects3= [];
 gdjs.LevelCode.GDCoinsObjects1= [];
 gdjs.LevelCode.GDCoinsObjects2= [];
 gdjs.LevelCode.GDCoinsObjects3= [];
-gdjs.LevelCode.GDSpawnObjects1= [];
-gdjs.LevelCode.GDSpawnObjects2= [];
-gdjs.LevelCode.GDSpawnObjects3= [];
 
 gdjs.LevelCode.conditionTrue_0 = {val:false};
 gdjs.LevelCode.condition0IsTrue_0 = {val:false};
@@ -150,7 +147,24 @@ gdjs.copyArray(runtimeScene.getObjects("Coin"), gdjs.LevelCode.GDCoinObjects1);
 }
 
 
-};gdjs.LevelCode.eventsList3 = function(runtimeScene) {
+};gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDPlayerObjects1Objects = Hashtable.newFrom({"Player": gdjs.LevelCode.GDPlayerObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDGoalObjects1Objects = Hashtable.newFrom({"Goal": gdjs.LevelCode.GDGoalObjects1});gdjs.LevelCode.eventsList3 = function(runtimeScene) {
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("Goal"), gdjs.LevelCode.GDGoalObjects1);
+gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.LevelCode.GDPlayerObjects1);
+
+gdjs.LevelCode.condition0IsTrue_0.val = false;
+{
+gdjs.LevelCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDPlayerObjects1Objects, gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDGoalObjects1Objects, false, runtimeScene, false);
+}if (gdjs.LevelCode.condition0IsTrue_0.val) {
+{gdjs.evtTools.runtimeScene.stopGame(runtimeScene);
+}}
+
+}
+
+
+};gdjs.LevelCode.eventsList4 = function(runtimeScene) {
 
 {
 
@@ -173,6 +187,13 @@ gdjs.LevelCode.eventsList2(runtimeScene);
 }
 
 
+{
+
+
+gdjs.LevelCode.eventsList3(runtimeScene);
+}
+
+
 };
 
 gdjs.LevelCode.func = function(runtimeScene) {
@@ -181,26 +202,23 @@ runtimeScene.getOnceTriggers().startNewFrame();
 gdjs.LevelCode.GDPlayerObjects1.length = 0;
 gdjs.LevelCode.GDPlayerObjects2.length = 0;
 gdjs.LevelCode.GDPlayerObjects3.length = 0;
-gdjs.LevelCode.GDGroundObjects1.length = 0;
-gdjs.LevelCode.GDGroundObjects2.length = 0;
-gdjs.LevelCode.GDGroundObjects3.length = 0;
 gdjs.LevelCode.GDPlatformObjects1.length = 0;
 gdjs.LevelCode.GDPlatformObjects2.length = 0;
 gdjs.LevelCode.GDPlatformObjects3.length = 0;
 gdjs.LevelCode.GDCoinObjects1.length = 0;
 gdjs.LevelCode.GDCoinObjects2.length = 0;
 gdjs.LevelCode.GDCoinObjects3.length = 0;
+gdjs.LevelCode.GDGoalObjects1.length = 0;
+gdjs.LevelCode.GDGoalObjects2.length = 0;
+gdjs.LevelCode.GDGoalObjects3.length = 0;
 gdjs.LevelCode.GDExplanationObjects1.length = 0;
 gdjs.LevelCode.GDExplanationObjects2.length = 0;
 gdjs.LevelCode.GDExplanationObjects3.length = 0;
 gdjs.LevelCode.GDCoinsObjects1.length = 0;
 gdjs.LevelCode.GDCoinsObjects2.length = 0;
 gdjs.LevelCode.GDCoinsObjects3.length = 0;
-gdjs.LevelCode.GDSpawnObjects1.length = 0;
-gdjs.LevelCode.GDSpawnObjects2.length = 0;
-gdjs.LevelCode.GDSpawnObjects3.length = 0;
 
-gdjs.LevelCode.eventsList3(runtimeScene);
+gdjs.LevelCode.eventsList4(runtimeScene);
 return;
 
 }
