@@ -1,4 +1,4 @@
-Game: https://wilkii.github.io/game/export/app/index.html \
+Game: https://wilkii.github.io/game/export/app/index.html (this won't quit when you reach the flag but the .exe does)\
 Repository: https://github.com/Wilkii/game
 
 Current functionality: \
