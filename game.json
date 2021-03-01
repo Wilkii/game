@@ -169,7 +169,7 @@
         "gridWidth": 32,
         "snap": false,
         "windowMask": false,
-        "zoomFactor": 0.082
+        "zoomFactor": 0.226
       },
       "objectsGroups": [],
       "variables": [],
@@ -759,7 +759,7 @@
           "underlined": false,
           "variables": [],
           "behaviors": [],
-          "string": "Welcome to the prototype for my game.\nUse the arrow keys to control your direction and space bar to jump.\nCollect coins to increase your accelaration and complete the level!",
+          "string": "Welcome to the prototype for my game.\nUse the arrow keys to control your direction and space bar to jump.\nCollect coins to increase your max speed and reach the flag to end the game!",
           "font": "",
           "characterSize": 100,
           "color": {
