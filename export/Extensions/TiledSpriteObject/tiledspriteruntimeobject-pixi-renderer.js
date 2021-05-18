@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   class TiledSpriteRuntimeObjectPixiRenderer {
     constructor(runtimeObject, runtimeScene, textureName) {
       this._object = runtimeObject;
@@ -61,6 +62,12 @@ var gdjs;
     getColor() {
       const rgb = PIXI.utils.hex2rgb(this._tiledSprite.tint);
       return Math.floor(rgb[0] * 255) + ";" + Math.floor(rgb[1] * 255) + ";" + Math.floor(rgb[2] * 255);
+    }
+    getTextureWidth() {
+      return this._tiledSprite.texture.width;
+    }
+    getTextureHeight() {
+      return this._tiledSprite.texture.height;
     }
   }
   gdjs2.TiledSpriteRuntimeObjectRenderer = TiledSpriteRuntimeObjectPixiRenderer;

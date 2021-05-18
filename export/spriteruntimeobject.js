@@ -236,6 +236,12 @@ var gdjs;
       }
       this._renderer.ensureUpToDate();
     }
+    updatePreRender(runtimeScene) {
+      if (this._animationFrameDirty) {
+        this._updateAnimationFrame();
+      }
+      this._renderer.ensureUpToDate();
+    }
     _updateAnimationFrame() {
       this._animationFrameDirty = false;
       if (this._currentAnimation < this._animations.length && this._currentDirection < this._animations[this._currentAnimation].directions.length) {
@@ -408,6 +414,18 @@ var gdjs;
       const pos = gdjs2.staticArray(SpriteRuntimeObject.prototype.getPointY);
       this._transformToGlobal(pt.x, pt.y, pos);
       return pos[1];
+    }
+    getPointPosition(name) {
+      if (this._animationFrameDirty) {
+        this._updateAnimationFrame();
+      }
+      if (name.length === 0 || this._animationFrame === null) {
+        return [this.getX(), this.getY()];
+      }
+      const pt = this._animationFrame.getPoint(name);
+      const pos = gdjs2.staticArray(SpriteRuntimeObject.prototype.getPointX);
+      this._transformToGlobal(pt.x, pt.y, pos);
+      return [pos[0], pos[1]];
     }
     _transformToGlobal(x, y, result) {
       const animationFrame = this._animationFrame;

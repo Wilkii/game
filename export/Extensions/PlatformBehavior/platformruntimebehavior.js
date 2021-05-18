@@ -46,14 +46,12 @@ var gdjs;
       this._oldHeight = 0;
       this._registeredInManager = false;
       this._platformType = behaviorData.platformType;
-      if (this._platformType == "Ladder") {
+      if (behaviorData.platformType === "Ladder") {
         this._platformType = PlatformRuntimeBehavior2.LADDER;
+      } else if (behaviorData.platformType === "Jumpthru") {
+        this._platformType = PlatformRuntimeBehavior2.JUMPTHRU;
       } else {
-        if (this._platformType == "Jumpthru") {
-          this._platformType = PlatformRuntimeBehavior2.JUMPTHRU;
-        } else {
-          this._platformType = PlatformRuntimeBehavior2.NORMALPLAFTORM;
-        }
+        this._platformType = PlatformRuntimeBehavior2.NORMALPLAFTORM;
       }
       this._canBeGrabbed = behaviorData.canBeGrabbed || false;
       this._yGrabOffset = behaviorData.yGrabOffset || 0;

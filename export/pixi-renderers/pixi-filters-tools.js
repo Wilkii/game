@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   let PixiFiltersTools;
   (function(PixiFiltersTools2) {
     PixiFiltersTools2.clampValue = function(value, min, max) {

@@ -1,5 +1,10 @@
 var gdjs;
 (function(gdjs2) {
+  const computeSqBoundingRadius = (width, height, centerX, centerY) => {
+    const radiusX = Math.max(centerX, width - centerX);
+    const radiusY = Math.max(centerY, height - centerY);
+    return Math.pow(radiusX, 2) + Math.pow(radiusY, 2);
+  };
   const RuntimeObject2 = class {
     constructor(runtimeScene, objectData) {
       this.x = 0;
@@ -21,9 +26,15 @@ var gdjs;
       this.getVariableString = RuntimeObject2.getVariableString;
       this.setVariableNumber = RuntimeObject2.setVariableNumber;
       this.setVariableString = RuntimeObject2.setVariableString;
+      this.getVariableBoolean = RuntimeObject2.getVariableBoolean;
+      this.setVariableBoolean = RuntimeObject2.setVariableBoolean;
+      this.toggleVariableBoolean = RuntimeObject2.toggleVariableBoolean;
       this.variableChildExists = RuntimeObject2.variableChildExists;
       this.variableRemoveChild = RuntimeObject2.variableRemoveChild;
       this.variableClearChildren = RuntimeObject2.variableClearChildren;
+      this.variablePushCopy = RuntimeObject2.variablePushCopy;
+      this.valuePush = RuntimeObject2.valuePush;
+      this.variableRemoveAt = RuntimeObject2.variableRemoveAt;
       this.getSqDistanceTo = RuntimeObject2.prototype.getSqDistanceToPosition;
       this.name = objectData.name || "";
       this.type = objectData.type || "";
@@ -87,6 +98,8 @@ var gdjs;
       return theLayer.getElapsedTime();
     }
     update(runtimeScene) {
+    }
+    updatePreRender(runtimeScene) {
     }
     extraInitializationFromInitialInstance(initialInstanceData) {
     }
@@ -152,7 +165,7 @@ var gdjs;
       return this.getY();
     }
     rotateTowardPosition(x, y, speed, scene) {
-      this.rotateTowardAngle(Math.atan2(y - (this.getDrawableY() + this.getCenterY()), x - (this.getDrawableX() + this.getCenterX())) * 180 / Math.PI, speed, scene);
+      this.rotateTowardAngle(gdjs2.toDegrees(Math.atan2(y - (this.getDrawableY() + this.getCenterY()), x - (this.getDrawableX() + this.getCenterX()))), speed, scene);
     }
     rotateTowardAngle(angle, speed, runtimeScene) {
       if (speed === 0) {
@@ -243,7 +256,7 @@ var gdjs;
       return variable.hasChild(childName);
     }
     static variableRemoveChild(variable, childName) {
-      return variable.removeChild(childName);
+      variable.removeChild(childName);
     }
     static variableClearChildren(variable) {
       variable.clearChildren();
@@ -279,6 +292,22 @@ var gdjs;
     getCenterY() {
       return this.getHeight() / 2;
     }
+    getCenterXInScene() {
+      return this.getDrawableX() + this.getCenterX();
+    }
+    getCenterYInScene() {
+      return this.getDrawableY() + this.getCenterY();
+    }
+    setCenterPositionInScene(x, y) {
+      this.setX(x + this.x - (this.getDrawableX() + this.getCenterX()));
+      this.setY(y + this.y - (this.getDrawableY() + this.getCenterY()));
+    }
+    setCenterXInScene(x) {
+      this.setX(x + this.x - (this.getDrawableX() + this.getCenterX()));
+    }
+    setCenterYInScene(y) {
+      this.setY(y + this.y - (this.getDrawableY() + this.getCenterY()));
+    }
     _getRecycledForce(x, y, multiplier) {
       if (RuntimeObject2.forcesGarbage.length === 0) {
         return new gdjs2.Force(x, y, multiplier);
@@ -294,15 +323,15 @@ var gdjs;
       this._forces.push(this._getRecycledForce(x, y, multiplier));
     }
     addPolarForce(angle, len, multiplier) {
-      const angleInRadians = angle / 180 * 3.14159;
+      const angleInRadians = gdjs2.toRad(angle);
       const forceX = Math.cos(angleInRadians) * len;
       const forceY = Math.sin(angleInRadians) * len;
       this._forces.push(this._getRecycledForce(forceX, forceY, multiplier));
     }
     addForceTowardPosition(x, y, len, multiplier) {
-      const angle = Math.atan2(y - (this.getDrawableY() + this.getCenterY()), x - (this.getDrawableX() + this.getCenterX()));
-      const forceX = Math.cos(angle) * len;
-      const forceY = Math.sin(angle) * len;
+      const angleInRadians = Math.atan2(y - (this.getDrawableY() + this.getCenterY()), x - (this.getDrawableX() + this.getCenterX()));
+      const forceX = Math.cos(angleInRadians) * len;
+      const forceY = Math.sin(angleInRadians) * len;
       this._forces.push(this._getRecycledForce(forceX, forceY, multiplier));
     }
     addForceTowardObject(object, len, multiplier) {
@@ -386,7 +415,7 @@ var gdjs;
         this.hitBoxes[0].vertices[3][0] = 0 - centerX;
         this.hitBoxes[0].vertices[3][1] = height - centerY;
       }
-      this.hitBoxes[0].rotate(this.getAngle() / 180 * Math.PI);
+      this.hitBoxes[0].rotate(gdjs2.toRad(this.getAngle()));
       this.hitBoxes[0].move(this.getDrawableX() + centerX, this.getDrawableY() + centerY);
     }
     getAABB() {
@@ -607,17 +636,23 @@ var gdjs;
       }
       const x = this.getDrawableX() + this.getCenterX() - (otherObject.getDrawableX() + otherObject.getCenterX());
       const y = this.getDrawableY() + this.getCenterY() - (otherObject.getDrawableY() + otherObject.getCenterY());
-      return Math.atan2(-y, -x) * 180 / Math.PI;
+      return gdjs2.toDegrees(Math.atan2(-y, -x));
+    }
+    getXFromAngleAndDistance(angle, distance) {
+      return this.getDrawableX() + this.getCenterX() + distance * Math.cos(gdjs2.toRad(angle));
+    }
+    getYFromAngleAndDistance(angle, distance) {
+      return this.getDrawableY() + this.getCenterY() + distance * Math.sin(gdjs2.toRad(angle));
     }
     getAngleToPosition(targetX, targetY) {
       const x = this.getDrawableX() + this.getCenterX() - targetX;
       const y = this.getDrawableY() + this.getCenterY() - targetY;
-      return Math.atan2(-y, -x) * 180 / Math.PI;
+      return gdjs2.toDegrees(Math.atan2(-y, -x));
     }
     putAround(x, y, distance, angleInDegrees) {
-      const angle = angleInDegrees / 180 * 3.14159;
-      this.setX(x + Math.cos(angle) * distance + this.getX() - (this.getDrawableX() + this.getCenterX()));
-      this.setY(y + Math.sin(angle) * distance + this.getY() - (this.getDrawableY() + this.getCenterY()));
+      const angleInRadians = gdjs2.toRad(angleInDegrees);
+      this.setCenterXInScene(x + Math.cos(angleInRadians) * distance);
+      this.setCenterYInScene(y + Math.sin(angleInRadians) * distance);
     }
     putAroundObject(obj, distance, angleInDegrees) {
       this.putAround(obj.getDrawableX() + obj.getCenterX(), obj.getDrawableY() + obj.getCenterY(), distance, angleInDegrees);
@@ -677,15 +712,15 @@ var gdjs;
       }
     }
     static collisionTest(obj1, obj2, ignoreTouchingEdges) {
-      const o1w = obj1.getWidth();
-      const o1h = obj1.getHeight();
-      const o2w = obj2.getWidth();
-      const o2h = obj2.getHeight();
-      const x = obj1.getDrawableX() + obj1.getCenterX() - (obj2.getDrawableX() + obj2.getCenterX());
-      const y = obj1.getDrawableY() + obj1.getCenterY() - (obj2.getDrawableY() + obj2.getCenterY());
-      const obj1BoundingRadius = Math.sqrt(o1w * o1w + o1h * o1h) / 2;
-      const obj2BoundingRadius = Math.sqrt(o2w * o2w + o2h * o2h) / 2;
-      if (Math.sqrt(x * x + y * y) > obj1BoundingRadius + obj2BoundingRadius) {
+      const o1centerX = obj1.getCenterX();
+      const o1centerY = obj1.getCenterY();
+      const obj1BoundingRadius = Math.sqrt(computeSqBoundingRadius(obj1.getWidth(), obj1.getHeight(), o1centerX, o1centerY));
+      const o2centerX = obj2.getCenterX();
+      const o2centerY = obj2.getCenterY();
+      const obj2BoundingRadius = Math.sqrt(computeSqBoundingRadius(obj2.getWidth(), obj2.getHeight(), o2centerX, o2centerY));
+      const diffX = obj1.getDrawableX() + o1centerX - (obj2.getDrawableX() + o2centerX);
+      const diffY = obj1.getDrawableY() + o1centerY - (obj2.getDrawableY() + o2centerY);
+      if (Math.sqrt(diffX * diffX + diffY * diffY) > obj1BoundingRadius + obj2BoundingRadius) {
         return false;
       }
       const hitBoxes1 = obj1.getHitBoxes();
@@ -700,18 +735,20 @@ var gdjs;
       return false;
     }
     raycastTest(x, y, endX, endY, closest) {
-      const objW = this.getWidth();
-      const objH = this.getHeight();
-      const diffX = this.getDrawableX() + this.getCenterX() - x;
-      const diffY = this.getDrawableY() + this.getCenterY() - y;
-      const sqBoundingR = (objW * objW + objH * objH) / 4;
-      const sqDist = (endX - x) * (endX - x) + (endY - y) * (endY - y);
+      const objCenterX = this.getCenterX();
+      const objCenterY = this.getCenterY();
+      const objSqBoundingRadius = computeSqBoundingRadius(this.getWidth(), this.getHeight(), objCenterX, objCenterY);
+      const rayCenterWorldX = (x + endX) / 2;
+      const rayCenterWorldY = (y + endY) / 2;
+      const raySqBoundingRadius = (endX - x) * (endX - x) + (endY - y) * (endY - y);
+      const diffX = this.getDrawableX() + objCenterX - rayCenterWorldX;
+      const diffY = this.getDrawableY() + objCenterY - rayCenterWorldY;
       let result = gdjs2.Polygon.raycastTestStatics.result;
       result.collision = false;
-      if (diffX * diffX + diffY * diffY > sqBoundingR + sqDist + 2 * Math.sqrt(sqDist * sqBoundingR)) {
+      if (diffX * diffX + diffY * diffY > objSqBoundingRadius + raySqBoundingRadius + 2 * Math.sqrt(raySqBoundingRadius * objSqBoundingRadius)) {
         return result;
       }
-      let testSqDist = closest ? sqDist : 0;
+      let testSqDist = closest ? raySqBoundingRadius : 0;
       const hitBoxes = this.getHitBoxes();
       for (let i = 0; i < hitBoxes.length; i++) {
         const res = gdjs2.Polygon.raycastTest(hitBoxes[i], x, y, endX, endY);
@@ -720,7 +757,7 @@ var gdjs;
             testSqDist = res.closeSqDist;
             result = res;
           } else {
-            if (!closest && res.farSqDist > testSqDist && res.farSqDist <= sqDist) {
+            if (!closest && res.farSqDist > testSqDist && res.farSqDist <= raySqBoundingRadius) {
               testSqDist = res.farSqDist;
               result = res;
             }
@@ -777,6 +814,24 @@ var gdjs;
   };
   let RuntimeObject = RuntimeObject2;
   RuntimeObject.supportsReinitialization = false;
+  RuntimeObject.setVariableBoolean = function(variable, newValue) {
+    variable.setBoolean(newValue);
+  };
+  RuntimeObject.getVariableBoolean = function(variable, compareWith) {
+    return gdjs2.evtTools.common.getVariableBoolean(variable, compareWith);
+  };
+  RuntimeObject.toggleVariableBoolean = function(variable) {
+    gdjs2.evtTools.common.toggleVariableBoolean(variable);
+  };
+  RuntimeObject.variablePushCopy = function(array, variable) {
+    array.pushVariableCopy(variable);
+  };
+  RuntimeObject.valuePush = function(array, value) {
+    array.pushValue(value);
+  };
+  RuntimeObject.variableRemoveAt = function(array, index) {
+    array.removeAtIndex(index);
+  };
   RuntimeObject._identifiers = new Hashtable();
   RuntimeObject._newId = 0;
   RuntimeObject.forcesGarbage = [];

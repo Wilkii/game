@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   class SpriteRuntimeObjectPixiRenderer {
     constructor(runtimeObject, runtimeScene) {
       this._spriteDirty = true;

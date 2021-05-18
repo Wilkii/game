@@ -18,6 +18,14 @@ var gdjs;
   gdjs2.rgbToHex = function(r, g, b) {
     return "" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   };
+  gdjs2.hexToRGBColor = function(hexString) {
+    var hexNumber = parseInt(hexString.replace("#", ""), 16);
+    return [
+      hexNumber >> 16 & 255,
+      hexNumber >> 8 & 255,
+      hexNumber & 255
+    ];
+  };
   gdjs2.rgbToHexNumber = function(r, g, b) {
     return (r << 16) + (g << 8) + b;
   };
@@ -51,10 +59,10 @@ var gdjs;
     return min + gdjs2.random(Math.floor((max - min) / step)) * step;
   };
   gdjs2.toRad = function(angleInDegrees) {
-    return angleInDegrees / 180 * 3.14159;
+    return angleInDegrees / 180 * Math.PI;
   };
   gdjs2.toDegrees = function(angleInRadians) {
-    return angleInRadians * 180 / 3.14159;
+    return angleInRadians * 180 / Math.PI;
   };
   gdjs2.registerObject = function(objectTypeName, Ctor) {
     gdjs2.objectsTypes.put(objectTypeName, Ctor);

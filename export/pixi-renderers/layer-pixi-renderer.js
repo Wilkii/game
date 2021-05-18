@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   class LayerPixiRenderer {
     constructor(layer, runtimeSceneRenderer) {
       this._filters = {};

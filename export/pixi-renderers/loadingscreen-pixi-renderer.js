@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   class LoadingScreenPixiRenderer {
     constructor(runtimeGamePixiRenderer, loadingScreenSetup) {
       this._pixiRenderer = runtimeGamePixiRenderer.getPIXIRenderer();

@@ -1,5 +1,6 @@
 var gdjs;
 (function(gdjs2) {
+  const PIXI = GlobalPIXIModule.PIXI;
   class TextRuntimeObjectPixiRenderer {
     constructor(runtimeObject, runtimeScene) {
       this._justCreated = true;

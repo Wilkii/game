@@ -13,6 +13,7 @@ var gdjs;
       this._soundManager = new gdjs2.SoundManager(this._data.resources.resources);
       this._fontManager = new gdjs2.FontManager(this._data.resources.resources);
       this._jsonManager = new gdjs2.JsonManager(this._data.resources.resources);
+      this._bitmapFontManager = new gdjs2.BitmapFontManager(this._data.resources.resources, this._imageManager);
       this._maxFPS = this._data ? this._data.properties.maxFPS : 60;
       this._minFPS = this._data ? this._data.properties.minFPS : 15;
       this._gameResolutionWidth = this._data.properties.windowWidth;
@@ -35,6 +36,7 @@ var gdjs;
       this._soundManager.setResources(this._data.resources.resources);
       this._fontManager.setResources(this._data.resources.resources);
       this._jsonManager.setResources(this._data.resources.resources);
+      this._bitmapFontManager.setResources(this._data.resources.resources);
     }
     getAdditionalOptions() {
       return this._options;
@@ -53,6 +55,9 @@ var gdjs;
     }
     getFontManager() {
       return this._fontManager;
+    }
+    getBitmapFontManager() {
+      return this._bitmapFontManager;
     }
     getInputManager() {
       return this._inputManager;
@@ -190,9 +195,16 @@ var gdjs;
               if (progressCallback) {
                 progressCallback(percent);
               }
-            }, function() {
-              loadingScreen.unload();
-              callback();
+            }, function(jsonTotalCount) {
+              that._bitmapFontManager.loadBitmapFontData((count) => {
+                var percent = Math.floor((texturesTotalCount + audioTotalCount + fontTotalCount + jsonTotalCount + count) / allAssetsTotal * 100);
+                loadingScreen.render(percent);
+                if (progressCallback)
+                  progressCallback(percent);
+              }).then(() => {
+                loadingScreen.unload();
+                callback();
+              });
             });
           });
         });
