@@ -1,4 +1,4 @@
-Game: https://wilkii.github.io/game/export/ (this won't quit when you reach the flag but the .exe does)\
+Game: https://wilkii.github.io/game/export/\
 Repository: https://github.com/Wilkii/game
 
 Current functionality: \
@@ -11,7 +11,7 @@ Insipirations: \
 Final product will be a mix between Geometry Dash and Sonic
 
 Current assets: \
-Player sprite. (2021). [image]. Available at: https://upload.wikimedia.org/wikipedia/commons/8/8e/Pan_Blue_Circle.png \
-Coin sprite. (2021). [image]. Available at: https://www.shareicon.net/data/512x512/2016/05/10/762828_game_512x512.png \
-Ground sprite. (2021). [image]. Available at: https://i.pinimg.com/originals/a4/41/dc/a441dcb02f43c28ebbf92eab9fbc0c2f.jpg \
-Goal sprite. (2021). [image]. Available at: http://pngimg.com/image/14697
+Sprite Art. (2021). [image]. Viking Environment Pack. Available at: https://hugues-laborde.itch.io/viking-environment-pack-pixel-art \
+Button. (2021). [image]. Pixel-art Buttons. Available at: https://sumo-studios.itch.io/pixel-art-buttons \
+Background Music. (2021). [sound]. Clouds Castle. Available at: https://www.playonloop.com/freebies-download/ \
+Gem Sound. (2021). [sound]. Fairy arcade sparkle. Available at: https://mixkit.co/free-sound-effects/coin/
