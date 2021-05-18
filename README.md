@@ -1,4 +1,4 @@
-Game: https://wilkii.github.io/game/export/\
+Game: https://wilkii.github.io/game/export/ \
 Repository: https://github.com/Wilkii/game
 
 Current functionality: \
