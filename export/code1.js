@@ -21,10 +21,10 @@ gdjs.LevelCode.GDJumpObjects1= [];
 gdjs.LevelCode.GDJumpObjects2= [];
 gdjs.LevelCode.GDJumpObjects3= [];
 gdjs.LevelCode.GDJumpObjects4= [];
-gdjs.LevelCode.GDLuckObjects1= [];
-gdjs.LevelCode.GDLuckObjects2= [];
-gdjs.LevelCode.GDLuckObjects3= [];
-gdjs.LevelCode.GDLuckObjects4= [];
+gdjs.LevelCode.GDManageObjects1= [];
+gdjs.LevelCode.GDManageObjects2= [];
+gdjs.LevelCode.GDManageObjects3= [];
+gdjs.LevelCode.GDManageObjects4= [];
 gdjs.LevelCode.GDPlayerObjects1= [];
 gdjs.LevelCode.GDPlayerObjects2= [];
 gdjs.LevelCode.GDPlayerObjects3= [];
@@ -113,7 +113,7 @@ gdjs.LevelCode.condition0IsTrue_0.val = false;
 gdjs.LevelCode.GDPlayerObjects3_1final.length = 0;gdjs.LevelCode.condition0IsTrue_1.val = false;
 gdjs.LevelCode.condition1IsTrue_1.val = false;
 {
-gdjs.LevelCode.condition0IsTrue_1.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, 60, "Timer");
+gdjs.LevelCode.condition0IsTrue_1.val = gdjs.evtTools.runtimeScene.timerElapsedTime(runtimeScene, 30, "Timer");
 if( gdjs.LevelCode.condition0IsTrue_1.val ) {
     gdjs.LevelCode.conditionTrue_1.val = true;
 }
@@ -141,8 +141,7 @@ gdjs.copyArray(gdjs.LevelCode.GDPlayerObjects3_1final, gdjs.LevelCode.GDPlayerOb
 }
 }
 }if (gdjs.LevelCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().getFromIndex(0).setNumber(0);
-}{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Level", true);
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Level", true);
 }}
 
 }
@@ -159,7 +158,7 @@ gdjs.LevelCode.condition0IsTrue_0.val = gdjs.evtTools.common.getVariableNumber(r
 }if (gdjs.LevelCode.condition0IsTrue_0.val) {
 gdjs.copyArray(runtimeScene.getObjects("Timer"), gdjs.LevelCode.GDTimerObjects3);
 {for(var i = 0, len = gdjs.LevelCode.GDTimerObjects3.length ;i < len;++i) {
-    gdjs.LevelCode.GDTimerObjects3[i].setString("Time left:" + gdjs.evtTools.common.toString(gdjs.evtTools.common.trunc(60 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "Timer"))));
+    gdjs.LevelCode.GDTimerObjects3[i].setString("Time left:" + gdjs.evtTools.common.toString(gdjs.evtTools.common.trunc(30 - gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "Timer"))));
 }
 }
 { //Subevents
@@ -192,7 +191,7 @@ gdjs.copyArray(runtimeScene.getObjects("Timer"), gdjs.LevelCode.GDTimerObjects2)
 }
 
 
-};gdjs.LevelCode.eventsList2 = function(runtimeScene) {
+};gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground1Objects1Objects = Hashtable.newFrom({"ground1": gdjs.LevelCode.GDground1Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground2Objects1Objects = Hashtable.newFrom({"ground2": gdjs.LevelCode.GDground2Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground3Objects1Objects = Hashtable.newFrom({"ground3": gdjs.LevelCode.GDground3Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground4Objects1Objects = Hashtable.newFrom({"ground4": gdjs.LevelCode.GDground4Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDPlayerObjects1Objects = Hashtable.newFrom({"Player": gdjs.LevelCode.GDPlayerObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDCoinObjects1Objects = Hashtable.newFrom({"Coin": gdjs.LevelCode.GDCoinObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDBedObjects1Objects = Hashtable.newFrom({"Bed": gdjs.LevelCode.GDBedObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDGoalObjects1Objects = Hashtable.newFrom({"Goal": gdjs.LevelCode.GDGoalObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDbridgebackObjects1Objects = Hashtable.newFrom({"bridgeback": gdjs.LevelCode.GDbridgebackObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDbridgefrontObjects1Objects = Hashtable.newFrom({"bridgefront": gdjs.LevelCode.GDbridgefrontObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDwater1Objects1Objects = Hashtable.newFrom({"water1": gdjs.LevelCode.GDwater1Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDwater2Objects1Objects = Hashtable.newFrom({"water2": gdjs.LevelCode.GDwater2Objects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDcloudsObjects1Objects = Hashtable.newFrom({"clouds": gdjs.LevelCode.GDcloudsObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDdarkObjects1Objects = Hashtable.newFrom({"dark": gdjs.LevelCode.GDdarkObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDmoonObjects1Objects = Hashtable.newFrom({"moon": gdjs.LevelCode.GDmoonObjects1});gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDskyObjects1Objects = Hashtable.newFrom({"sky": gdjs.LevelCode.GDskyObjects1});gdjs.LevelCode.eventsList2 = function(runtimeScene) {
 
 {
 
@@ -206,7 +205,7 @@ gdjs.copyArray(runtimeScene.getObjects("Stats"), gdjs.LevelCode.GDStatsObjects2)
     gdjs.LevelCode.GDStatsObjects2[i].setString("");
 }
 }{for(var i = 0, len = gdjs.LevelCode.GDCoinsObjects2.length ;i < len;++i) {
-    gdjs.LevelCode.GDCoinsObjects2[i].setString("Coins:" + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0)));
+    gdjs.LevelCode.GDCoinsObjects2[i].setString("Gems:" + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0)));
 }
 }{gdjs.evtTools.camera.setCameraX(runtimeScene, gdjs.evtTools.camera.getCameraX(runtimeScene, "", 0) + (100), "", 0);
 }{gdjs.evtTools.camera.setCameraY(runtimeScene, 180, "", 0);
@@ -225,8 +224,7 @@ gdjs.LevelCode.condition0IsTrue_0.val = false;
 {
 gdjs.LevelCode.condition0IsTrue_0.val = gdjs.evtTools.input.isKeyPressed(runtimeScene, "Escape");
 }if (gdjs.LevelCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().getFromIndex(0).setNumber(0);
-}{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Menu", true);
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Menu", true);
 }}
 
 }
@@ -239,9 +237,25 @@ gdjs.LevelCode.condition0IsTrue_0.val = false;
 {
 gdjs.LevelCode.condition0IsTrue_0.val = gdjs.evtTools.input.isKeyPressed(runtimeScene, "k");
 }if (gdjs.LevelCode.condition0IsTrue_0.val) {
+gdjs.copyArray(runtimeScene.getObjects("Bed"), gdjs.LevelCode.GDBedObjects1);
+gdjs.copyArray(runtimeScene.getObjects("Coin"), gdjs.LevelCode.GDCoinObjects1);
+gdjs.copyArray(runtimeScene.getObjects("Goal"), gdjs.LevelCode.GDGoalObjects1);
+gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.LevelCode.GDPlayerObjects1);
 gdjs.copyArray(runtimeScene.getObjects("Stats"), gdjs.LevelCode.GDStatsObjects1);
+gdjs.copyArray(runtimeScene.getObjects("bridgeback"), gdjs.LevelCode.GDbridgebackObjects1);
+gdjs.copyArray(runtimeScene.getObjects("bridgefront"), gdjs.LevelCode.GDbridgefrontObjects1);
+gdjs.copyArray(runtimeScene.getObjects("clouds"), gdjs.LevelCode.GDcloudsObjects1);
+gdjs.copyArray(runtimeScene.getObjects("dark"), gdjs.LevelCode.GDdarkObjects1);
+gdjs.copyArray(runtimeScene.getObjects("ground1"), gdjs.LevelCode.GDground1Objects1);
+gdjs.copyArray(runtimeScene.getObjects("ground2"), gdjs.LevelCode.GDground2Objects1);
+gdjs.copyArray(runtimeScene.getObjects("ground3"), gdjs.LevelCode.GDground3Objects1);
+gdjs.copyArray(runtimeScene.getObjects("ground4"), gdjs.LevelCode.GDground4Objects1);
+gdjs.copyArray(runtimeScene.getObjects("moon"), gdjs.LevelCode.GDmoonObjects1);
+gdjs.copyArray(runtimeScene.getObjects("sky"), gdjs.LevelCode.GDskyObjects1);
+gdjs.copyArray(runtimeScene.getObjects("water1"), gdjs.LevelCode.GDwater1Objects1);
+gdjs.copyArray(runtimeScene.getObjects("water2"), gdjs.LevelCode.GDwater2Objects1);
 {for(var i = 0, len = gdjs.LevelCode.GDStatsObjects1.length ;i < len;++i) {
-    gdjs.LevelCode.GDStatsObjects1[i].setString("The stats are:");
+    gdjs.LevelCode.GDStatsObjects1[i].setString("There are " + gdjs.evtTools.common.toString(gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground1Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground2Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground3Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDground4Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDPlayerObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDCoinObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDBedObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDGoalObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDbridgebackObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDbridgefrontObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDwater1Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDwater2Objects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDcloudsObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDdarkObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDmoonObjects1Objects) + gdjs.evtTools.object.pickedObjectsCount(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDskyObjects1Objects)) + " objects in this scene");
 }
 }}
 
@@ -303,7 +317,7 @@ gdjs.LevelCode.condition0IsTrue_0.val = false;
 {
 gdjs.LevelCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDPlayerObjects1Objects, gdjs.LevelCode.mapOfGDgdjs_46LevelCode_46GDGoalObjects1Objects, false, runtimeScene, false);
 }if (gdjs.LevelCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().get("Level Timer").setNumber(gdjs.evtTools.common.trunc(gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "Timer") * 100) / 100);
+{runtimeScene.getGame().getVariables().getFromIndex(1).setNumber(gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSeconds(runtimeScene, "Timer"));
 }{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "End", true);
 }}
 
@@ -485,10 +499,10 @@ gdjs.LevelCode.GDJumpObjects1.length = 0;
 gdjs.LevelCode.GDJumpObjects2.length = 0;
 gdjs.LevelCode.GDJumpObjects3.length = 0;
 gdjs.LevelCode.GDJumpObjects4.length = 0;
-gdjs.LevelCode.GDLuckObjects1.length = 0;
-gdjs.LevelCode.GDLuckObjects2.length = 0;
-gdjs.LevelCode.GDLuckObjects3.length = 0;
-gdjs.LevelCode.GDLuckObjects4.length = 0;
+gdjs.LevelCode.GDManageObjects1.length = 0;
+gdjs.LevelCode.GDManageObjects2.length = 0;
+gdjs.LevelCode.GDManageObjects3.length = 0;
+gdjs.LevelCode.GDManageObjects4.length = 0;
 gdjs.LevelCode.GDPlayerObjects1.length = 0;
 gdjs.LevelCode.GDPlayerObjects2.length = 0;
 gdjs.LevelCode.GDPlayerObjects3.length = 0;

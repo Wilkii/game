@@ -20,7 +20,7 @@
     "author": "",
     "windowWidth": 640,
     "windowHeight": 360,
-    "latestCompilationDirectory": "",
+    "latestCompilationDirectory": "C:\\Users\\arwil\\OneDrive - Newcastle University\\csc3224-computer-games-development\\game\\export",
     "maxFPS": 0,
     "minFPS": 20,
     "verticalSync": false,
@@ -910,18 +910,18 @@
   "variables": [
     {
       "name": "Coin Count",
-      "type": "string",
-      "value": "0"
+      "type": "number",
+      "value": 0
     },
     {
       "name": "Level Time",
-      "type": "string",
-      "value": "0"
+      "type": "number",
+      "value": 0
     },
     {
       "name": "Cheat",
-      "type": "string",
-      "value": "0"
+      "type": "number",
+      "value": 0
     }
   ],
   "layouts": [
@@ -2108,7 +2108,7 @@
         "gridWidth": 32,
         "snap": false,
         "windowMask": false,
-        "zoomFactor": 1.6100000000000008
+        "zoomFactor": 0.3099999999999996
       },
       "objectsGroups": [],
       "variables": [],
@@ -2186,7 +2186,7 @@
           "name": "Goal",
           "persistentUuid": "9fc6cf69-9683-49e4-9984-f13b8e27065e",
           "width": 0,
-          "x": 3300,
+          "x": 8878,
           "y": 219,
           "zOrder": 15,
           "numberProperties": [],
@@ -2281,7 +2281,7 @@
           "locked": false,
           "name": "water1",
           "persistentUuid": "d2edac4d-d38e-40f1-b8e4-2b7efd3c3329",
-          "width": 6966,
+          "width": 10804,
           "x": -1905,
           "y": 343,
           "zOrder": 99,
@@ -2457,7 +2457,7 @@
           "locked": false,
           "name": "water2",
           "persistentUuid": "ba01516a-ab77-4ade-bd42-eb7adbf7298c",
-          "width": 6963,
+          "width": 10801,
           "x": -1902,
           "y": 351,
           "zOrder": 100,
@@ -2663,22 +2663,6 @@
           "height": 0,
           "layer": "",
           "locked": false,
-          "name": "Luck",
-          "persistentUuid": "ccdb477e-606f-4df0-ab2c-31a32d124e28",
-          "width": 0,
-          "x": 2078,
-          "y": 271,
-          "zOrder": 102,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "locked": false,
           "name": "bridgefront",
           "persistentUuid": "34624d67-0baf-4de1-93cb-657be03d12a7",
           "width": 0,
@@ -2715,7 +2699,7 @@
           "persistentUuid": "b647434e-6ef5-46aa-8535-3ad0cdad5a54",
           "width": 0,
           "x": 2850,
-          "y": 303,
+          "y": 305,
           "zOrder": 32,
           "numberProperties": [],
           "stringProperties": [],
@@ -2731,7 +2715,7 @@
           "persistentUuid": "27f23e78-bb05-43b4-a735-aaaa4507efa8",
           "width": 0,
           "x": 2845,
-          "y": 306,
+          "y": 308,
           "zOrder": 31,
           "numberProperties": [],
           "stringProperties": [],
@@ -2768,6 +2752,198 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ground2",
+          "persistentUuid": "6102cca6-0bcd-4594-a143-beb9a641cf58",
+          "width": 0,
+          "x": 3571,
+          "y": 314,
+          "zOrder": 40,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ground3",
+          "persistentUuid": "83e1a4f0-d3fc-47c3-80da-3e13c898b647",
+          "width": 0,
+          "x": 4158,
+          "y": 315,
+          "zOrder": 41,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ground2",
+          "persistentUuid": "c434599a-c053-47b1-891b-ecd0f642a8f4",
+          "width": 0,
+          "x": 5109,
+          "y": 315,
+          "zOrder": 40,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 17,
+          "layer": "",
+          "locked": false,
+          "name": "water1",
+          "persistentUuid": "6be6dd65-0491-49e9-bac3-95473678a353",
+          "width": 6966,
+          "x": -1905,
+          "y": 343,
+          "zOrder": 99,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Coin",
+          "persistentUuid": "c2f3455b-8a37-4ec9-8ef4-184db7648131",
+          "width": 0,
+          "x": 4257,
+          "y": 273,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ground3",
+          "persistentUuid": "93392c76-d7be-43c7-8759-ac6c701b3668",
+          "width": 0,
+          "x": 6324,
+          "y": 314,
+          "zOrder": 104,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "bridgefront",
+          "persistentUuid": "ec029eaf-5bd2-4ad8-a94d-c0e13b6febf8",
+          "width": 0,
+          "x": 6255,
+          "y": 304,
+          "zOrder": 32,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "bridgeback",
+          "persistentUuid": "3bc9f926-b6bc-4d71-a841-891175b6b297",
+          "width": 0,
+          "x": 6250,
+          "y": 307,
+          "zOrder": 31,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Manage",
+          "persistentUuid": "d8973772-3547-404a-991c-9e192aeda6b9",
+          "width": 0,
+          "x": 4339.53857421875,
+          "y": 271,
+          "zOrder": 102,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Coin",
+          "persistentUuid": "164e23bf-b305-4250-b1d4-55fb900257b9",
+          "width": 0,
+          "x": 6519,
+          "y": 273,
+          "zOrder": 105,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Coin",
+          "persistentUuid": "8b4c2395-a9cf-467e-ac73-25482df5fb50",
+          "width": 0,
+          "x": 6673,
+          "y": 273,
+          "zOrder": 105,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ground4",
+          "persistentUuid": "a3c5c7d0-7e1d-411e-a4b0-8c307eee4e03",
+          "width": 0,
+          "x": 8581,
+          "y": 314,
+          "zOrder": 106,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -2781,7 +2957,7 @@
           "underlined": false,
           "variables": [],
           "behaviors": [],
-          "string": "Coins",
+          "string": "Gems",
           "font": "",
           "characterSize": 10,
           "color": {
@@ -2869,14 +3045,14 @@
         {
           "bold": false,
           "italic": false,
-          "name": "Luck",
+          "name": "Manage",
           "smoothed": true,
           "tags": "",
           "type": "TextObject::Text",
           "underlined": false,
           "variables": [],
           "behaviors": [],
-          "string": "Good luck, and try to reach the end!",
+          "string": "Manage your speed by moving sideways in air!",
           "font": "",
           "characterSize": 10,
           "color": {
@@ -4870,7 +5046,7 @@
                   "parameters": [
                     "Coins",
                     "=",
-                    "\"Coins:\" + GlobalVariableString(Coin Count)"
+                    "\"Gems:\" + GlobalVariableString(Coin Count)"
                   ],
                   "subInstructions": []
                 },
@@ -4931,7 +5107,7 @@
                       "parameters": [
                         "Timer",
                         "=",
-                        "\"Time left:\" + ToString(trunc(60-TimerElapsedTime(\"Timer\")))"
+                        "\"Time left:\" + ToString(trunc(30-TimerElapsedTime(\"Timer\")))"
                       ],
                       "subInstructions": []
                     }
@@ -4956,7 +5132,7 @@
                               },
                               "parameters": [
                                 "",
-                                "60",
+                                "30",
                                 "\"Timer\""
                               ],
                               "subInstructions": []
@@ -4977,18 +5153,6 @@
                         }
                       ],
                       "actions": [
-                        {
-                          "type": {
-                            "inverted": false,
-                            "value": "ModVarGlobal"
-                          },
-                          "parameters": [
-                            "Coin Count",
-                            "=",
-                            "0"
-                          ],
-                          "subInstructions": []
-                        },
                         {
                           "type": {
                             "inverted": false,
@@ -5090,18 +5254,6 @@
                 {
                   "type": {
                     "inverted": false,
-                    "value": "ModVarGlobal"
-                  },
-                  "parameters": [
-                    "Coin Count",
-                    "=",
-                    "0"
-                  ],
-                  "subInstructions": []
-                },
-                {
-                  "type": {
-                    "inverted": false,
                     "value": "Scene"
                   },
                   "parameters": [
@@ -5140,7 +5292,7 @@
                   "parameters": [
                     "Stats",
                     "=",
-                    "\"The stats are:\""
+                    "\"There are \" + ToString(Count(ground1)+Count(ground2)+Count(ground3)+Count(ground4)+Count(Player)+Count(Coin)+Count(Bed)+Count(Goal)+Count(bridgeback)+Count(bridgefront)+Count(water1)+Count(water2)+Count(clouds)+Count(dark)+Count(moon)+Count(sky)) + \" objects in this scene\""
                   ],
                   "subInstructions": []
                 }
@@ -5315,9 +5467,9 @@
                     "value": "ModVarGlobal"
                   },
                   "parameters": [
-                    "Level Timer",
+                    "Level Time",
                     "=",
-                    "trunc(TimerElapsedTime(\"Timer\")*100)/100"
+                    "TimerElapsedTime(\"Timer\")"
                   ],
                   "subInstructions": []
                 },
@@ -6029,6 +6181,25 @@
           ]
         },
         {
+          "bold": false,
+          "italic": false,
+          "name": "MenuText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "Menu",
+          "font": "",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
           "name": "menu",
           "tags": "",
           "type": "Sprite",
@@ -6066,25 +6237,6 @@
               ]
             }
           ]
-        },
-        {
-          "bold": false,
-          "italic": false,
-          "name": "MenuText",
-          "smoothed": true,
-          "tags": "",
-          "type": "TextObject::Text",
-          "underlined": false,
-          "variables": [],
-          "behaviors": [],
-          "string": "Menu",
-          "font": "",
-          "characterSize": 20,
-          "color": {
-            "b": 255,
-            "g": 255,
-            "r": 255
-          }
         }
       ],
       "events": [
@@ -6125,7 +6277,7 @@
               "parameters": [
                 "Time",
                 "=",
-                "\"Time taken: \" + GlobalVariableString(Level Time)"
+                "\"Time taken: \" + ToString(trunc(GlobalVariable(Level Time)*100)/100)"
               ],
               "subInstructions": []
             }

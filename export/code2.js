@@ -7,10 +7,10 @@ gdjs.EndCode.GDTimeObjects1= [];
 gdjs.EndCode.GDTimeObjects2= [];
 gdjs.EndCode.GDfountainObjects1= [];
 gdjs.EndCode.GDfountainObjects2= [];
-gdjs.EndCode.GDmenuObjects1= [];
-gdjs.EndCode.GDmenuObjects2= [];
 gdjs.EndCode.GDMenuTextObjects1= [];
 gdjs.EndCode.GDMenuTextObjects2= [];
+gdjs.EndCode.GDmenuObjects1= [];
+gdjs.EndCode.GDmenuObjects2= [];
 
 gdjs.EndCode.conditionTrue_0 = {val:false};
 gdjs.EndCode.condition0IsTrue_0 = {val:false};
@@ -33,7 +33,7 @@ gdjs.copyArray(runtimeScene.getObjects("Time"), gdjs.EndCode.GDTimeObjects1);
     gdjs.EndCode.GDGemsObjects1[i].setString("Gems: " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(0)));
 }
 }{for(var i = 0, len = gdjs.EndCode.GDTimeObjects1.length ;i < len;++i) {
-    gdjs.EndCode.GDTimeObjects1[i].setString("Time taken: " + gdjs.evtTools.common.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(1)));
+    gdjs.EndCode.GDTimeObjects1[i].setString("Time taken: " + gdjs.evtTools.common.toString(gdjs.evtTools.common.trunc(gdjs.evtTools.common.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(1)) * 100) / 100));
 }
 }}
 
@@ -72,10 +72,10 @@ gdjs.EndCode.GDTimeObjects1.length = 0;
 gdjs.EndCode.GDTimeObjects2.length = 0;
 gdjs.EndCode.GDfountainObjects1.length = 0;
 gdjs.EndCode.GDfountainObjects2.length = 0;
-gdjs.EndCode.GDmenuObjects1.length = 0;
-gdjs.EndCode.GDmenuObjects2.length = 0;
 gdjs.EndCode.GDMenuTextObjects1.length = 0;
 gdjs.EndCode.GDMenuTextObjects2.length = 0;
+gdjs.EndCode.GDmenuObjects1.length = 0;
+gdjs.EndCode.GDmenuObjects2.length = 0;
 
 gdjs.EndCode.eventsList0(runtimeScene);
 return;
